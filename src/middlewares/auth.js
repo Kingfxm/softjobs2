@@ -9,10 +9,10 @@ module.exports = (req, res, next) => {
   try {
     verifyToken = jwt.verify(authToken, process.env.JWT_KEY, { expiresIn: 60 });
   } catch (error) {
-    res.status(401).json({ error: "Token no valido" });
+    res.status(401).json({ message: "Token no valido" });
   }
   if (!verifyToken) {
-    return res.status(401).json({ error: "Error al verificar token" });
+    return res.status(401).json({ message: "Error al verificar token" });
   }
   req.user = verifyToken;
   next();

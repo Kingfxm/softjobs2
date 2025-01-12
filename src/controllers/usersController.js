@@ -7,7 +7,8 @@ exports.getUser = async (req, res) => {
     const user = await getUserInfo(req.user.email);
     res.status(200).json([user]);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
+    console.log(error.message);
   }
 };
 
@@ -17,7 +18,8 @@ exports.createUser = async (req, res) => {
     const user = await createUser(req.body);
     res.status(201).json(user);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
+    console.log(error.message);
   }
 };
 
@@ -40,5 +42,6 @@ exports.authenticateUser = async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
+    console.log(error.message);
   }
 };

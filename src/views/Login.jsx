@@ -30,7 +30,7 @@ const Login = () => {
       .post(ENDPOINT.login, user)
       .then(({ data }) => {
         window.sessionStorage.setItem("token", data.token);
-        window.alert("Usuario identificado con éxito 😀.");
+        window.alert("Login exitoso");
         setDeveloper({});
         navigate("/perfil");
       })
